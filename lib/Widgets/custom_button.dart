@@ -6,7 +6,7 @@ class Custombutton extends StatefulWidget {
   final double height;
   final String title;
   final IconData? icon;
-  final Function()? onTap;
+  final Function() onTap;
   final Color color;
   const Custombutton({
     super.key,
@@ -33,11 +33,11 @@ class _CustombuttonState extends State<Custombutton> {
         setState(() {
           isTaped = true;
         });
-        await Future.delayed(Duration(milliseconds: 100));
+        await Future.delayed(Duration(milliseconds: 120));
         setState(() {
           isTaped = false;
         });
-        widget.onTap;
+        widget.onTap();
       },
       child: AnimatedScale(
         duration: Duration(milliseconds: 100),
@@ -50,7 +50,7 @@ class _CustombuttonState extends State<Custombutton> {
             borderRadius: BorderRadius.circular(12),
             boxShadow: [
               BoxShadow(
-                color: widget.color.withAlpha(50),
+                color: widget.color.withAlpha(30),
                 blurRadius: 10,
                 spreadRadius: 0.1,
                 offset: Offset(10, 0),
@@ -58,7 +58,7 @@ class _CustombuttonState extends State<Custombutton> {
             ],
           ),
           child: Padding(
-            padding: EdgeInsetsGeometry.symmetric(horizontal: 12),
+            padding: EdgeInsets.symmetric(horizontal: 12),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [

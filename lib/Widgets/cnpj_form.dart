@@ -49,6 +49,7 @@ class _CnpjFormState extends State<CnpjForm> {
               if (_formGlobalKey.currentState!.validate()) {
                 _formGlobalKey.currentState!.save();
                 if (_cnpj == "00.000.000/0000-00") {
+                  FocusScope.of(context).unfocus();
                   widget.togglePlay();
                   await Future.delayed(Duration(milliseconds: 4000));
                   Navigator.pushReplacement(
